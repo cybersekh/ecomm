@@ -67,5 +67,5 @@ db.createCollection("accounts", {
         }
       }
     }
-  });
+});
   
