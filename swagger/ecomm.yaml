@@ -1,0 +1,68 @@
+openapi: 3.0.1
+info:
+  title: API Alura Categorias
+  description: "API construída na Spring 3 do curso Alura+NxtDev"
+  version: 0.0.1
+  contact:
+    name: Carolina Lima
+    email: cybersekh@gmail.com
+    url: https://mockapi.io
+  license:
+    name: "Lincença: GPLv3"
+    url: https://www.gnu.org/licenses/gpl-3.0.html
+servers:
+  - url: http://localhost:3000/
+paths:
+  /categories:
+    get:
+      summary: Lista de Categorias
+      description: "Uma listagem completa das categorias"
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Categories"
+        '404':
+          description: Não encontramos nenhuma categoria cadastrada.
+          content:
+            application/json:
+              example: "Not Found"
+  /categories/{id}:
+    get:
+      summary: Categoria com ID específico
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: integer
+        required: true
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Categories"
+        '404':
+          description: Não encontramos nenhuma categoria cadastrada.
+          content:
+            application/json:
+              example: "Not Found"
+
+components:
+  schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        nome:
+          type: string
+        status:
+          type: string
+    Categories:
+      type: array
+      items:
+        $ref: "#/components/schemas/Category"
