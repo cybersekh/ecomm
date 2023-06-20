@@ -50,6 +50,28 @@ paths:
           content:
             application/json:
               example: "Not Found"
+  /api/admin/categories:
+  post:
+    summary: Adiciona nova categoria
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              nome:
+                type: string
+    responses:
+      201:
+        description: Nova categoria criada com sucesso
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/Category"
+      security:
+      - auth: []
 
 components:
   schemas:
@@ -66,3 +88,9 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/Category"
+
+  securitySchemes:
+    auth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
