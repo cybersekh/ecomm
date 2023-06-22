@@ -3,6 +3,8 @@ services:
   ecomm:
     build: .
     image: ecomm:1.0
+    ports:
+      - 3000:3000
 
   mongo-ecomm:
     image: mongo

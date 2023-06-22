@@ -5,13 +5,14 @@
     "main": "src/main.js",
     "type": "module",
     "scripts": {
-      "start": "node src/main.js",
-      "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "node src/server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "",
     "license": "MIT",
     "dependencies": {
-      "chalk": "^5.2.0",
-      "json-server": "^0.17.3"
+        "chalk": "^5.2.0",
+        "json-server": "^0.17.3",
+        "mongoose": "^7.3.1"
     }
-  }
+}
