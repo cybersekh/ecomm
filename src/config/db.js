@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-mongoose.connect('mongodb://admin:secret@localhost:27017/admin');
+mongoose.connect('mongodb://admin:secret@mongo-ecomm:27017/ecomm?authSource=admin');
 
 const db = mongoose.connection;
 
