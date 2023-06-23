@@ -26,7 +26,7 @@ class CategoriesController {
             res.status(417).send('Nome ou status incorretos.');
           } else {
             await categ.save();
-            res.status(201).send('Nova categoria cadastrada.');
+            res.status(201).json(categ);
           }
         } catch (err) {
           res.status(500).json(err);
