@@ -6,6 +6,16 @@ class CategoriesController {
         res.status(200).json(resp);
     };
 
+    static getById = async (req, res) => {
+        try {
+            const id = req.params.id;
+            const resp = await categories.findById(id).exec();
+            res.status(200).json(resp);
+        } catch (err) {
+            res.status(500).json(err);
+          }
+    };
+
     static async createCategory (req, res) {
         try {
           const categ = new categories({
