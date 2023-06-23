@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 
 const categorySchema = new mongoose.Schema(
     {
-        nome: { type: String, required: true },
-        status: { type: String },
+        nome: { type: String, minLenght: 3, required: true },
+        status: { type: String, enum: ['ATIVA', 'INATIVA'], default: 'ATIVA' },
     },
 );
 
