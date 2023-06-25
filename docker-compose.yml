@@ -3,13 +3,15 @@ services:
   ecomm:
     build: .
     image: ecomm:1.0
+    environment:
+      - MONGO_DOMAIN=mongo-ecomm
     ports:
       - 3000:3000
 
   mongo-ecomm:
     image: mongo
     container_name: mongo-ecomm
-    environment: 
+    environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=secret
     volumes:
